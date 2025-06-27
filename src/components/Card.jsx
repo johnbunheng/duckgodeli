@@ -1,4 +1,4 @@
-import testimg from "../img/bay1.jpg"
+
 import { MdBorderColor } from "react-icons/md";
 const Card = ({id,name,price,type,img}) => {
     return ( 
@@ -12,13 +12,13 @@ const Card = ({id,name,price,type,img}) => {
                 </div>
                 {/* name */}
                 <div className="p-2">
-                    <h1 className="font-Khmer font-semibold text-2xl">
+                    <h1 className="font-poppins font-semibold text-2xl">
                         {name}
                     </h1>
                 </div>
                 {/* price */}
                 <div className="px-2">
-                    <p className="font-Khmer text-md text-green-500 font-semibold">តម្លៃ /- {price}</p>
+                    <p className="font-poppins text-md text-green-500 font-semibold">តម្លៃ /- {price} Rel</p>
                 </div>
                 {/* add to card */}
                 <div className="flex justify-center py-2">

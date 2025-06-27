@@ -30,8 +30,8 @@ const Home = () => {
                         className="w-[150px] sm:w-[180px] h-[150px]  sm:h-[180px] bg-white text-center justify-items-center rounded-md
                         shadow-xl cursor-pointer hover:scale-105 hover:transition-all duration-200
                         hover:bg-yellow-200 group" onClick={()=>fiillter(item.name)}>
-                            <div className="mt-[20%] text-[60px] my-2 text-yellow-500 group-hover:scale-125 duration-200">{item.icon}</div>
-                            <h1 className="font-Khmer font-bold">{item.name}</h1>
+                            <div className="mt-[20%] text-[60px] text-center my-2 text-yellow-500 group-hover:scale-125 duration-200">{item.icon}</div>
+                            <h1 className="font-poppins font-bold">{item.name}</h1>
                         </div>
                     ))
                 }
