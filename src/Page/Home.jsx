@@ -39,9 +39,6 @@ const Home = () => {
             
         </div>
             <div className="container justify-items-center">
-                <hr className=" w-96 h-[0.20rem] my-5 bg-green-600"/>
-                <hr className=" w-80 h-[0.20rem] my-5 bg-yellow-500"/>
-                <hr className=" w-72 h-[0.20rem] my-5 bg-green-600"/>
             </div>
             <div  className="container justify-items-center grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                 {cate.map((item)=>(
