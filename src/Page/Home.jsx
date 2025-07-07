@@ -6,6 +6,8 @@ import { Food } from "../food.";
 import Categories from "../categories";
 import { BiCategory } from "react-icons/bi";
 import { dataContext } from "../context/Usercontext";
+import Card2 from "../components/Card2";
+
 const Home = () => {
     let{cate,setCate,input,showcard,setShowcard} = useContext(dataContext)
     
@@ -21,10 +23,10 @@ const Home = () => {
     return ( 
         <div className="bg-slate-200">
             <Navbar/>
-             <div className="container py-">
+             <div className="container">
                 <h1 className="mx-5 sm:mx-0 text-2xl font-semibold font-poppins text-yellow-500"><span><BiCategory className="inline-block text-4xl text-green-500 mx-2"/></span> Type</h1>
                 {!input ? 
-                <div className="grid grid-cols-2 justify-items-center  my-2 py-5 px-2 gap-4 sm:grid-cols-3 xl:flex">
+                <div className="sm:mx-20 grid grid-cols-2 justify-items-center  my-2 py-5 px-2 gap-4 sm:grid-cols-3 xl:flex">
                     {
                         Categories.map((item)=>(
                             <div key={item.id}
@@ -45,14 +47,15 @@ const Home = () => {
                     <Card key={item.id} name={item.food_name} id={item.id} img={item.food_img}
                     price={item.food_price} type={item.food_category}/>
                 ))}
-            </div>    
-                   <div className={` fixed bg-white top-0 right-0 w-96 h-[500px] rounded-lg shadow-xl duration-300 ${showcard?"translate-x-0":"translate-x-full"}`} >
-                       {/* header */}
-                         <div className="flex font-poppins justify-between items-center mx-2 my-2">
-                                <h1>Order Item</h1>
-                                <GoX className="text-2xl font-bold cursor-pointer" onClick={()=>setShowcard(false)}/>
-                        </div>
+            </div>  
+              {/* order  */}
+             <div className={` fixed bg-white top-0 right-0 w-96 h-[500px] rounded-lg shadow-xl duration-300 ${showcard?"translate-x-0":"translate-x-full"}`} >
+                   <div className="flex font-poppins justify-between items-center mx-2 my-2">
+                        <h1>Order Item</h1>
+                        <GoX className="text-2xl font-bold cursor-pointer" onClick={()=>setShowcard(false)}/>
                     </div>
+                  <Card2/>     
+            </div>
         </div>
      );
 }

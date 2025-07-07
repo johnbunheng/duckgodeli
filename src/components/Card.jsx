@@ -3,7 +3,7 @@ import { MdBorderColor } from "react-icons/md";
 const Card = ({id,name,price,type,img}) => {
     return ( 
         <div className="mx-10">
-            <div className="w-[250px] my-2 h-[370px] rounded-lg bg-white 
+            <div className="sm:w-[250px] w-[320px] my-2 h-[370px] rounded-lg bg-white 
             hover:scale-105 transition-all duration-200 shadow-lg">
                 {/* img */}
                 <div className="flex justify-center">
