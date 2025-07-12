@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { FaCartShopping } from "react-icons/fa6";
 import { dataContext } from "../context/Usercontext";
 import { Food } from "../food.";
@@ -10,7 +11,9 @@ const Navbar = () => {
     || item.food_name.toLowerCase().includes(input))
         setCate(newlist)
     },[input])
-    
+
+    let items = useSelector(state=>state.card)
+    console.log(items)
     return ( 
         <nav className="container flex justify-between items-center h-[100px]">
             {/* logo */}
@@ -38,7 +41,7 @@ const Navbar = () => {
             onClick={()=>{
                 setShowcard(true)
             }}>
-                <span className=" absolute -top-1 right-1 text-green-500">0</span>
+                <span className=" absolute -top-1 right-1 font-semibold text-red-600">{items.length}</span>
                 <FaCartShopping className="text-2xl cursor-pointer text-green-500 "/>
             </div>
         </nav>

@@ -3,9 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import Usercontext from './context/Usercontext.jsx'
+import { Provider } from 'react-redux'
+import { store } from './Redux/store.js'
 
 createRoot(document.getElementById('root')).render(
-  <Usercontext>
-    <App />
-  </Usercontext>
+  <Provider store={store}>
+      <Usercontext>
+        <App />
+      </Usercontext>
+  </Provider>
+ 
 )

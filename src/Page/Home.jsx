@@ -7,6 +7,9 @@ import Categories from "../categories";
 import { BiCategory } from "react-icons/bi";
 import { dataContext } from "../context/Usercontext";
 import Card2 from "../components/Card2";
+import { useSelector } from "react-redux";
+
+
 
 const Home = () => {
     let{cate,setCate,input,showcard,setShowcard} = useContext(dataContext)
@@ -20,13 +23,14 @@ const Home = () => {
         }
 
     }
+    let items = useSelector(state=>state.card)
     return ( 
         <div className="bg-slate-200">
             <Navbar/>
              <div className="container">
-                <h1 className="mx-5 sm:mx-0 text-2xl font-semibold font-poppins text-yellow-500"><span><BiCategory className="inline-block text-4xl text-green-500 mx-2"/></span> Type</h1>
+                <h1 className=" mx-5 sm:mx-0 text-2xl font-semibold font-poppins text-yellow-500"><span><BiCategory className="inline-block text-4xl text-green-500 mx-2"/></span> Type</h1>
                 {!input ? 
-                <div className="sm:mx-20 grid grid-cols-2 justify-items-center  my-2 py-5 px-2 gap-4 sm:grid-cols-3 xl:flex">
+                <div className="font sm:mx-20 grid grid-cols-2 justify-items-center  my-2 py-5 px-2 gap-4 sm:grid-cols-3 xl:flex">
                     {
                         Categories.map((item)=>(
                             <div key={item.id}
@@ -49,12 +53,18 @@ const Home = () => {
                 ))}
             </div>  
               {/* order  */}
-             <div className={` fixed bg-white top-0 right-0 w-96 h-[500px] rounded-lg shadow-xl duration-300 ${showcard?"translate-x-0":"translate-x-full"}`} >
+             <div className={` fixed bg-white  overflow-scroll overflow-x-hidden overflow-y-auto top-0 right-0 w-96 h-[500px] rounded-lg shadow-xl duration-300 ${showcard?"translate-x-0":"translate-x-full"}`} >
                    <div className="flex font-poppins justify-between items-center mx-2 my-2">
                         <h1>Order Item</h1>
                         <GoX className="text-2xl font-bold cursor-pointer" onClick={()=>setShowcard(false)}/>
                     </div>
-                  <Card2/>     
+                        <hr className="border border-green-600"/>
+                 <div className="">
+                    {items.map((item=>(
+                        <Card2 name={item.name} price={item.price}
+                        image={item.img}/>
+                    )))}
+                 </div>
             </div>
         </div>
      );

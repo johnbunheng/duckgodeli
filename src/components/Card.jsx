@@ -1,6 +1,9 @@
 
 import { MdBorderColor } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { AddItem } from "../Redux/cardslide";
 const Card = ({id,name,price,type,img}) => {
+    let dispatch = useDispatch()
     return ( 
         <div className="mx-10">
             <div className="sm:w-[250px] w-[320px] my-2 h-[370px] rounded-lg bg-white 
@@ -22,7 +25,7 @@ const Card = ({id,name,price,type,img}) => {
                 </div>
                 {/* add to card */}
                 <div className="flex justify-center py-2">
-                    <button className="w-[94%] bg-yellow-200 font-bold rounded-lg p-2 hover:bg-yellow-300"><MdBorderColor className="inline-block -mt-2 mx-2"/>Order Now</button>
+                    <button className="w-[94%] bg-yellow-200 font-bold rounded-lg p-2 hover:bg-yellow-300" onClick={()=>dispatch((AddItem({id:id,name:name,price:price,img:img})))}><MdBorderColor className="inline-block -mt-2 mx-2"/>Order Now</button>
                 </div>
             </div>
         </div>
